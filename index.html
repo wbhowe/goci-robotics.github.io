@@ -1,171 +1,1170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GOCI Robotics, LLC</title>
-  <meta name="description" content="GOCI Robotics, LLC develops advanced control and design solutions for terrestrial and in-space robotics." />
-  <meta property="og:title" content="GOCI Robotics, LLC" />
-  <meta property="og:description" content="Advanced control and design for terrestrial and in-space robotics." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://gocirobotics.com/preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="GOCI Robotics" />
-  <meta name="theme-color" content="#0b1220" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230b1220'/%3E%3Cpath d='M50 20l8 10-8 10-8-10 8-10zm0 30l20 25H30L50 50z' fill='%23a5b4fc'/%3E%3C/svg%3E" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GOCI Robotics | Robotics, Autonomy & Control Research</title>
+
+  <meta
+    name="description"
+    content="GOCI Robotics conducts foundational and applied research in robotics, autonomous systems, control theory, and multi-agent coordination."
+  >
+
+  <!-- =========================================================
+       LINK / SOCIAL MEDIA PREVIEW
+       Put preview.png in the same GitHub repository as index.html
+       ========================================================= -->
+
+  <meta property="og:title" content="GOCI Robotics">
+  <meta
+    property="og:description"
+    content="Foundational and applied research in robotics, autonomy, control, and multi-agent systems."
+  >
+  <meta
+    property="og:image"
+    content="https://gocirobotics.com/GOCI Robotics_Beyond Earth.png"
+  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta
+    property="og:image:alt"
+    content="GOCI Robotics - Robotics, Controls, and Autonomy"
+  >
+  <meta property="og:url" content="https://gocirobotics.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GOCI Robotics">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GOCI Robotics">
+  <meta
+    name="twitter:description"
+    content="Foundational and applied research in robotics, autonomy, control, and multi-agent systems."
+  >
+  <meta
+    name="twitter:image"
+    content="https://gocirobotics.com/GOCI Robotics_Beyond Earth.png"
+  >
+
+  <!-- =========================================================
+       FAVICON
+       Uses the same geometric logo as the navigation bar
+       ========================================================= -->
+
+  <link
+    rel="icon"
+    href='data:image/svg+xml,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+    fill="none" stroke="%230ea5e9" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l3 5-3 5-3-5 3-5z"/>
+    <path d="M12 13l6 8H6l6-8z"/>
+    </svg>'
+  >
+
   <style>
-    :root{--bg:#0b1220;--fg:#e5e7eb;--muted:#9ca3af;--brand:#a5b4fc;--card:#111827;--accent:#22d3ee}
-    *{box-sizing:border-box}html,body{margin:0;height:100%}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:linear-gradient(180deg,#0b1220,#0f172a);color:var(--fg)}
-    a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);background:rgba(11,18,32,.7);border-bottom:1px solid #1f2937;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
-    .logo-mark{width:28px;height:28px;border-radius:12px;background:radial-gradient(circle at 30% 30%,#22d3ee,transparent 60%),radial-gradient(circle at 70% 70%,#a5b4fc,transparent 60%),#111827;display:grid;place-items:center}
-    .logo-mark svg{width:18px;height:18px}
-    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:#111827;border:1px solid #1f2937;color:var(--fg);text-decoration:none}
-    .btn:hover{border-color:#374151}
-    .hero{padding:72px 0 40px;border-bottom:1px solid #111827}
-    .hero h1{font-size:40px;line-height:1.1;margin:0 0 16px}
-    .hero p.lead{font-size:18px;color:var(--muted);max-width:720px}
-    .grid{display:grid;gap:20px}
-    @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}}
-    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:20px}
-    .card h3{margin:0 0 8px;font-size:18px}
-    .kpi{display:flex;gap:16px;align-items:center}
-    .kpi .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
-    section{padding:36px 0}
-    footer{border-top:1px solid #111827;padding:28px 0;color:var(--muted)}
-    .tag{display:inline-block;border:1px solid #1f2937;background:#0b1220;border-radius:999px;padding:6px 10px;font-size:12px;color:#a5b4fc}
-    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid #1f2937;background:#0b1220;border-radius:999px;padding:8px 12px;font-size:13px;color:#cbd5e1}
-    .list{margin:10px 0 0;padding-left:18px}
-    .cols{display:grid;gap:18px}
-    @media(min-width:900px){.cols{grid-template-columns:2fr 1fr}}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;color:#c7d2fe}
-    .small{font-size:12px;color:var(--muted)}
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    :root {
+      --background: #070b12;
+      --background-secondary: #0d131d;
+      --card: #101823;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --blue: #38bdf8;
+      --blue-dark: #0284c7;
+      --border: rgba(255, 255, 255, 0.10);
+      --max-width: 1150px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: auto;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      line-height: 1.15;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .section-intro {
+      max-width: 800px;
+      margin-bottom: 50px;
+      font-size: 1.08rem;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.90);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand svg {
+      width: 31px;
+      height: 31px;
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      padding: 100px 0;
+      display: flex;
+      align-items: center;
+
+      background:
+        radial-gradient(
+          circle at 75% 40%,
+          rgba(14, 165, 233, 0.12),
+          transparent 35%
+        ),
+        linear-gradient(
+          180deg,
+          #070b12 0%,
+          #090f18 100%
+        );
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      max-width: 950px;
+      margin-bottom: 28px;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      letter-spacing: -0.045em;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin-bottom: 36px;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 22px;
+      display: inline-block;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: #03111a;
+    }
+
+    .button-primary:hover {
+      background: #7dd3fc;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      color: #e2e8f0;
+    }
+
+    .button-secondary:hover {
+      border-color: var(--blue);
+    }
+
+
+    /* =========================================================
+       RESEARCH
+       ========================================================= */
+
+    .research {
+      background: var(--background-secondary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .card-number {
+      margin-bottom: 20px;
+      color: var(--blue);
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       RESEARCH PHILOSOPHY
+       ========================================================= */
+
+    .research-philosophy {
+      max-width: 850px;
+    }
+
+    .research-philosophy p {
+      font-size: 1.08rem;
+    }
+
+    .research-philosophy strong {
+      color: #e2e8f0;
+    }
+
+
+    /* =========================================================
+       CAPABILITIES
+       ========================================================= */
+
+    .capabilities {
+      background: var(--background-secondary);
+    }
+
+    .capability-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 50px;
+      margin-top: 40px;
+    }
+
+    .capability {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .capability strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #e2e8f0;
+    }
+
+    .capability span {
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       FOUNDER
+       ========================================================= */
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.5fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .founder-heading h3 {
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+
+    .founder-heading p {
+      margin-top: 0;
+    }
+
+    .founder-bio p:first-child {
+      margin-top: 0;
+    }
+
+    .founder-bio p {
+      font-size: 1.05rem;
+    }
+
+    .credentials {
+      margin-top: 30px;
+      padding-top: 25px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+    }
+
+    .credential {
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: #cbd5e1;
+      font-size: 0.82rem;
+    }
+
+
+    /* =========================================================
+       APPLICATION AREAS
+       ========================================================= */
+
+    .applications {
+      background: var(--background-secondary);
+    }
+
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact .container {
+      max-width: 750px;
+    }
+
+    .contact p {
+      margin-bottom: 32px;
+      font-size: 1.1rem;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
+      section {
+        padding: 75px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .capability-list {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav-links a:nth-child(1),
+      .nav-links a:nth-child(2) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 100px 0;
+      }
+    }
+
   </style>
 </head>
+
+
 <body>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+
   <header>
-    <div class="wrap nav">
-      <div class="logo">
-        <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l3 5-3 5-3-5 3-5z"/><path d="M12 13l6 8H6l6-8z"/></svg>
-        </span>
-        <span>GOCI Robotics, LLC</span>
-      </div>
-      <nav aria-label="primary">
-        <ul>
-          <li><a href="#focus">Focus</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a class="btn" href="mailto:contact@gocirobotics.com">Email Us</a></li>
-        </ul>
+    <div class="container">
+
+      <nav>
+
+        <a class="brand" href="#home">
+
+          <!-- GOCI geometric logo -->
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 3l3 5-3 5-3-5 3-5z"/>
+            <path d="M12 13l6 8H6l6-8z"/>
+          </svg>
+
+          <span>GOCI Robotics, LLC</span>
+
+        </a>
+
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+
       </nav>
+
     </div>
   </header>
 
+
   <main>
-    <section class="hero">
-      <div class="wrap cols">
-        <div>
-          <span class="tag">Robotics R&D • Controls • Autonomy</span>
-          <h1>Advanced control & design for terrestrial and in‑space robotics.</h1>
-          <p class="lead">We build resilient, intelligent control software that scales from ground systems to orbital platforms. Our work blends rigorous algorithms with practical deployment for research, industry, and space exploration.</p>
-          <div class="hero-cta">
-            <a class="btn" href="#projects">See Projects</a>
-            <a class="btn" href="#contact">Work With Us</a>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            Robotics · Controls · Autonomous Systems
+          </p>
+
+          <h1>
+            Advancing the foundations of
+            <span>robotic autonomy.</span>
+          </h1>
+
+          <p class="hero-description">
+            GOCI Robotics conducts foundational and applied research
+            in robotics, autonomous systems, control theory, and
+            multi-agent coordination. We investigate the principles
+            governing intelligent and collective robotic systems and
+            translate those insights toward technologies for complex
+            real-world environments.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#research"
+              class="button button-primary"
+            >
+              Explore Our Research
+            </a>
+
+            <a
+              href="#contact"
+              class="button button-secondary"
+            >
+              Contact GOCI
+            </a>
+
           </div>
+
         </div>
-        <div>
-          <div class="card">
-            <div class="kpi"><span class="dot"></span><strong>Mission</strong></div>
-            <p class="small">Develop robust autonomy and control technologies that expand human capability in extreme environments.</p>
-            <div class="kpi" style="margin-top:10px"><span class="dot"></span><strong>Vision</strong></div>
-            <p class="small">Pioneer cross‑domain robotics that operate reliably from lab to low Earth orbit.</p>
-            <div class="kpi" style="margin-top:10px"><span class="dot"></span><strong>Current Goals</strong></div>
-            <ul class="small list">
-              <li>Phase I/II SBIR proposals in controls & distributed autonomy</li>
-              <li>Open demos for formation control & time‑delay PDE models</li>
-              <li>Partnerships with universities and flight programs</li>
-            </ul>
-          </div>
-        </div>
+
       </div>
+
     </section>
 
-    <section id="focus">
-      <div class="wrap">
-        <h2>Focus Areas</h2>
-        <div class="grid grid-3" style="margin-top:14px">
-          <div class="card">
-            <h3>Control & Estimation</h3>
-            <p>MPPI/CBF, distributed control, formation keeping, fault‑tolerant guidance, and estimator design for resource‑constrained platforms.</p>
-          </div>
-          <div class="card">
-            <h3>Information‑Propagation Models</h3>
-            <p>Wave‑like and delay‑aware PDE models for multi‑agent coordination, sensing, and robustness under uncertainty.</p>
-          </div>
-          <div class="card">
-            <h3>Space & Terrestrial Integration</h3>
-            <p>Software architectures that transition from ground robots to in‑space systems with identical interfaces and test tooling.</p>
-          </div>
+
+    <!-- =========================================================
+         FOUNDATIONAL RESEARCH
+         ========================================================= -->
+
+    <section class="research" id="research">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Foundational Research
+        </p>
+
+        <h2>
+          Understanding the principles behind autonomous systems.
+        </h2>
+
+        <p class="section-intro">
+          Our research examines the mathematical, computational,
+          and physical principles that determine how autonomous
+          agents sense, communicate, coordinate, and respond to
+          their environments.
+        </p>
+
+
+        <div class="grid">
+
+
+          <article class="card">
+
+            <div class="card-number">01</div>
+
+            <h3>
+              Collective Dynamics
+            </h3>
+
+            <p>
+              Investigating how local interactions generate
+              information propagation, coordinated motion, and
+              emergent collective behavior across large
+              multi-agent systems.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-number">02</div>
+
+            <h3>
+              Distributed Control
+            </h3>
+
+            <p>
+              Developing and analyzing control architectures for
+              networked autonomous systems operating with
+              asymmetric interactions, communication constraints,
+              delays, and incomplete information.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-number">03</div>
+
+            <h3>
+              Bio-Inspired Autonomy
+            </h3>
+
+            <p>
+              Studying mechanisms underlying collective biological
+              behavior and translating those principles into models
+              and control strategies for engineered robotic systems.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-number">04</div>
+
+            <h3>
+              Autonomous Decision-Making
+            </h3>
+
+            <p>
+              Exploring planning and decision-making methods that
+              allow robotic systems to operate safely and
+              effectively under uncertainty and changing
+              environmental conditions.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-number">05</div>
+
+            <h3>
+              Safety-Critical Control
+            </h3>
+
+            <p>
+              Developing control and planning approaches that
+              combine autonomous performance with explicit safety,
+              stability, and operational constraints.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-number">06</div>
+
+            <h3>
+              Information Propagation
+            </h3>
+
+            <p>
+              Studying how information travels through networked
+              robotic and biological systems and how network
+              structure influences propagation speed, distortion,
+              stability, and collective response.
+            </p>
+
+          </article>
+
+
         </div>
+
       </div>
+
     </section>
 
-    <section id="projects">
-      <div class="wrap">
-        <h2>Selected Projects</h2>
-        <div class="grid grid-2" style="margin-top:14px">
-          <div class="card">
-            <h3>Formation Control for Swarms</h3>
-            <p>Sector‑FOV swarming with memory‑based PDE coupling; stable, scalable coordination under sparse communication.</p>
-            <p class="small mono">Python • CUDA • MATLAB • ROS2</p>
-          </div>
-          <div class="card">
-            <h3>Safe Autonomy with CBF‑MPPI</h3>
-            <p>Sampling‑based MPC with Control Barrier Functions for real‑time safety guarantees in cluttered, dynamic environments.</p>
-            <p class="small mono">MPPI • CBF • Real‑time</p>
-          </div>
+
+    <!-- =========================================================
+         RESEARCH APPROACH
+         ========================================================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="research-philosophy">
+
+          <p class="eyebrow">
+            Research Approach
+          </p>
+
+          <h2>
+            From fundamental principles to robotic capability.
+          </h2>
+
+          <p>
+            GOCI Robotics approaches autonomy as both a
+            <strong>fundamental research problem</strong>
+            and an engineering challenge. Understanding the
+            mechanisms that govern stability, information flow,
+            decision-making, and collective behavior can provide
+            new approaches to designing autonomous systems that
+            operate beyond the limitations of conventional
+            centralized architectures.
+          </p>
+
+          <p>
+            Our work combines mathematical modeling, control
+            theory, numerical simulation, robotic experimentation,
+            and engineering design. This allows fundamental
+            questions about autonomous and networked systems to be
+            investigated while maintaining a pathway toward
+            practical robotic applications.
+          </p>
+
         </div>
+
       </div>
+
     </section>
 
-    <section id="contact">
-      <div class="wrap">
-        <h2>Contact</h2>
-        <div class="grid grid-2" style="margin-top:14px">
-          <div class="card">
-            <h3>Get in touch</h3>
-            <p>Email <a href="mailto:contact@gocirobotics.com">contact@gocirobotics.com</a> to discuss collaborations, SBIR partnerships, or research consulting.</p>
-            <p class="small">Mailing address and additional corporate details available upon request.</p>
+
+    <!-- =========================================================
+         CAPABILITIES
+         ========================================================= -->
+
+    <section
+      class="capabilities"
+      id="capabilities"
+    >
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Technical Capabilities
+        </p>
+
+        <h2>
+          Research grounded in engineering.
+        </h2>
+
+        <p class="section-intro">
+          GOCI combines theoretical research with experience
+          designing, analyzing, testing, and operating complex
+          engineered systems.
+        </p>
+
+
+        <div class="capability-list">
+
+
+          <div class="capability">
+
+            <strong>
+              Control Systems
+            </strong>
+
+            <span>
+              Advanced, robust, predictive, distributed, and
+              safety-critical control.
+            </span>
+
           </div>
-          <div class="card">
-            <h3>Links</h3>
-            <ul class="list">
-              <li><a href="mailto:contact@gocirobotics.com">Email</a></li>
-            </ul>
+
+
+          <div class="capability">
+
+            <strong>
+              Multi-Agent & Swarm Robotics
+            </strong>
+
+            <span>
+              Coordination, information propagation, networked
+              dynamics, and collective behavior.
+            </span>
+
           </div>
+
+
+          <div class="capability">
+
+            <strong>
+              Autonomous Navigation
+            </strong>
+
+            <span>
+              Motion planning, state estimation, decision-making,
+              and autonomous system simulation.
+            </span>
+
+          </div>
+
+
+          <div class="capability">
+
+            <strong>
+              Modeling & Simulation
+            </strong>
+
+            <span>
+              Physics-based modeling, numerical simulation,
+              algorithm evaluation, and system-level analysis.
+            </span>
+
+          </div>
+
+
+          <div class="capability">
+
+            <strong>
+              Robotic Systems Engineering
+            </strong>
+
+            <span>
+              Mechanical design, prototyping, system integration,
+              testing, validation, and hardware/software
+              integration.
+            </span>
+
+          </div>
+
+
+          <div class="capability">
+
+            <strong>
+              Research & Technology Transition
+            </strong>
+
+            <span>
+              Connecting fundamental research questions with
+              experimentally testable concepts and future robotic
+              capabilities.
+            </span>
+
+          </div>
+
+
         </div>
+
       </div>
+
     </section>
+
+
+    <!-- =========================================================
+         APPLICATION AREAS
+         ========================================================= -->
+
+    <section class="applications">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Application Areas
+        </p>
+
+        <h2>
+          Autonomy for complex environments.
+        </h2>
+
+        <p class="section-intro">
+          Our research is motivated by robotic systems that must
+          operate with limited information, uncertain environments,
+          communication constraints, and high requirements for
+          reliability and autonomy.
+        </p>
+
+
+        <div class="grid">
+
+
+          <article class="card">
+
+            <h3>
+              Space Robotics
+            </h3>
+
+            <p>
+              Autonomous spacecraft, robotic servicing,
+              manipulation, coordinated spacecraft systems,
+              and distributed space architectures.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Maritime Systems
+            </h3>
+
+            <p>
+              Distributed and bio-inspired autonomy for surface
+              and underwater robotic systems operating in
+              communication-limited environments.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Aerial & Terrestrial Robotics
+            </h3>
+
+            <p>
+              Autonomous navigation, multi-agent coordination,
+              manipulation, and intelligent robotic systems for
+              complex terrestrial environments.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOUNDER
+         ========================================================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Founder
+        </p>
+
+
+        <div class="founder-layout">
+
+
+          <div class="founder-heading">
+
+            <h3>
+              William Howe
+            </h3>
+
+            <p>
+              Founder & Principal Investigator
+            </p>
+
+          </div>
+
+
+          <div class="founder-bio">
+
+            <p>
+              William Howe is the founder and Principal
+              Investigator of GOCI Robotics, LLC and a Ph.D.
+              candidate in Mechanical Engineering at the
+              University of Washington. His current research
+              focuses on robotics, autonomous systems, control
+              theory, and multi-agent coordination, including the
+              fundamental mechanisms governing information
+              propagation and collective behavior in networked
+              robotic systems.
+            </p>
+
+            <p>
+              Prior to his doctoral research, William accumulated
+              more than a decade of engineering experience across
+              the design, prototyping, testing, manufacturing,
+              integration, and operation of complex engineered
+              systems. His industry experience includes
+              electromechanical systems, control and automation,
+              system validation, and aerospace engineering, and
+              culminated in leading the Mechanical Systems Design
+              team for Blue Origin's New Shepard launch vehicle
+              through its first human flight.
+            </p>
+
+            <p>
+              This combination of research and industry experience
+              shapes GOCI Robotics' approach: investigate
+              fundamental questions in autonomy and control while
+              maintaining a direct connection to the engineering
+              realities required to transition new ideas into
+              reliable robotic systems.
+            </p>
+
+
+            <div class="credentials">
+
+              <span class="credential">
+                10+ Years Industry Experience
+              </span>
+
+              <span class="credential">
+                Aerospace Engineering
+              </span>
+
+              <span class="credential">
+                Robotics & Autonomy
+              </span>
+
+              <span class="credential">
+                Control Systems
+              </span>
+
+              <span class="credential">
+                Multi-Agent Systems
+              </span>
+
+              <span class="credential">
+                Mechanical Systems
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <p class="eyebrow">
+          Contact
+        </p>
+
+        <h2>
+          Research. Collaboration. Technology.
+        </h2>
+
+        <p>
+          GOCI Robotics is interested in research collaborations,
+          government-sponsored research, and partnerships focused
+          on advancing autonomous and robotic systems.
+        </p>
+
+        <!-- Change this address if you use a different company email -->
+        <a
+          href="mailto:info@gocirobotics.com"
+          class="button button-primary"
+        >
+          info@gocirobotics.com
+        </a>
+
+      </div>
+
+    </section>
+
+
   </main>
 
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer>
-    <div class="wrap">
-      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
-        <span>© <span id="y"></span> GOCI Robotics, LLC</span>
-        <span class="small">Built with GitHub Pages • MIT‑licensed content unless noted</span>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <p>
+          © 2026 GOCI Robotics, LLC. All rights reserved.
+        </p>
+
+        <p>
+          Robotics · Controls · Autonomous Systems
+        </p>
+
       </div>
+
     </div>
+
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+
 </body>
 </html>
